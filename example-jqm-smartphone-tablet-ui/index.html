@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<title>Example</title>
+		<link rel="stylesheet" href="themes/AndroidHoloDarkLight.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.2.0.css" />
+		<link rel="stylesheet" href="themes/jqm-docs.css" />
+		<style type="text/css">
+		@font-face {
+			font-family: 'RobotoThin';
+			src: url('fonts/Roboto-Thin-webfont.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}		
+		@font-face {
+			font-family: 'RobotoRegular';
+			src: url('fonts/Roboto-Regular-webfont.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+		/* Android jQM Font Style Overrides */
+		body * {
+			font-family: "RobotoRegular" !important;
+			font-weight: normal !important;
+		}		
+		h1, h2, h3, h4, h5, h6 * {
+			font-family: "RobotoThin" !important;
+			font-weight: normal !important;
+		}
+		/* padding & margin & box-shadow: top right bottom left
+		Android ICS colors:
+			Roboto	: 177BBD / 23,123,189 (dark cyan)
+			Charcoal: 222222 / 34,34,34 (dark grey)
+			Honest	: 33B5E5 / 51,181,229(cyan) --> 51,182,234?
+			Imdur	: 555555 / 85,85,85 (grey)
+		*/
+		img.title {
+			border-bottom:1px solid #33B5E5;
+		}
+		.header {
+			position:fixed;
+			z-index:10;
+			top:0;
+			width:100%;
+		}
+		.content {
+			padding:45px 15px;
+		}
+		.footer {
+			position:fixed;
+			z-index:10;
+			bottom:0;
+			width:100%;
+		}		
+		.subTitle {
+			color: #33B4E5;
+			text-align:center;
+		}		
+		.small {
+			text-align:center;
+			font-size:medium;
+		}		
+		.warning {
+			color: red;
+		}
+		</style>
+		<script type="text/javascript" src="cordova-2.2.0.js"></script>
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript">
+		/* Custom scripts */
+		function pressBackButton() {
+			if($.mobile.activePage.is('#indexPage')){
+				navigator.app.exitApp();
+			} else if($.mobile.activePage.is('#subPage')){
+				window.history.back();
+			} else {
+				$.mobile.changePage( "index.html", { transition: "none" } );
+			}
+		}
+		
+		function onDeviceReady() {
+			document.addEventListener("backbutton", function(e) {
+				e.preventDefault();
+				pressBackButton();
+			}, false);
+		}
+		</script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	</head>
+	<body>
+		
+		<div id="indexPage" data-role="page" class="type-interior" data-theme="a">
+			
+			<div data-role="header" data-tap-toggle="false" class="header" data-theme="a">
+				<img border="0" src="images/ic_launcher.png" alt="Logo" height="40" style="float:left;display:inline;"/>
+			</div><!-- /header -->
+			
+			<div data-role="content" data-theme="a" class="content">
+			
+			<div class="content-secondary">
+				
+				<div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a">
+				
+					<h3>Click to see the menu.</h3>
+				
+					<ul data-role="listview" data-theme="a" data-dividertheme="c">
+					<li><a href="./index.html" data-transition="none" class="ui-btn-active ui-state-persist">
+						<h3>Home</h3>
+						<p>index.html</p>
+					</a></li>
+					<li><a href="./index.html" data-transition="none">
+						<h3>Home 2</h3>
+						<p>index.html</p>
+					</a></li>
+					<li><a href="./index.html" data-transition="none">
+						<h3>Home 3</h3>
+						<p>index.html</p>
+					</a></li>
+					<li><a href="./index.html" data-transition="none">
+						<h3>Home 4</h3>
+						<p>index.html</p>
+					</a></li>
+					</ul>
+				
+				</div><!-- /menu -->
+
+			</div><!-- /contentsecundary -->
+			
+			<div class="content-primary">
+
+				<h2>Example app</h2>
+				
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu lacus ut tortor adipiscing eleifend non sit amet nisl. Nullam euismod aliquam laoreet. Fusce sollicitudin, ipsum ac sodales fringilla, lorem sapien auctor ipsum, a mattis lacus felis eget metus. Cras vel urna dui, rhoncus rutrum magna. Morbi vulputate rutrum sem, ut aliquet nibh vehicula consectetur. Mauris posuere, mauris ultrices semper tempor, libero ipsum sagittis diam, nec consectetur dui augue quis diam. Aenean semper aliquet velit sit amet gravida. Cras non augue tortor. Ut ut orci massa, vitae lobortis tellus. Integer tempor ultrices suscipit. Etiam ut metus a nibh egestas cursus pharetra quis odio. Pellentesque ac nulla elit, id elementum est. Duis convallis sapien non nisl blandit id mattis leo tristique. Nam mauris justo, hendrerit sed tincidunt et, molestie ut lacus. Etiam luctus diam sit amet odio fermentum at tincidunt felis tristique. Cras diam sapien, pharetra id faucibus id, accumsan eu lacus.
+				</p>
+				
+				</div>
+			
+			</div><!-- /contentprimary -->
+			
+			</div><!-- /content -->
+		
+			<div data-role="footer" data-tap-toggle="false" class="footer" data-theme="a">
+				
+			</div><!-- /footer -->
+		
+		</div>
+	</body>
+</html>
